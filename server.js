@@ -4,8 +4,13 @@ import userRouter from './Routes/userRouter.js'
 import taskRouter from './Routes/taskRouter.js'
 import { DB_conn } from './Database/Db.js'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 const app = express()
 
+
+app.use(cors({
+    origin: process.env.FRONTEND_URL
+}))
 dotenv.config({
     path: './config.env'
 })
